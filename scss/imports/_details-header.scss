@@ -1,0 +1,210 @@
+#details-header {
+	.content {
+		margin: 0 auto;
+		width: $content-width;
+		position: relative;
+		font-size: $txt-small;
+		height: 200px;
+
+		.dropdown {
+			position: absolute;
+			top: 0px;;
+			right: -75px;
+			width: 200px;
+			text-align: right;
+
+			ul {
+				li {
+					width: 200px;
+					font-size: $txt-medium;
+					a {
+						text-align: left;
+						margin-left: 0px;
+					}
+					i { 
+						color: yellowgreen;
+						margin-right: 25px;
+					}
+				}
+			}
+			
+			.fa-bars {
+				font-size: 24px;
+				color: #888;
+
+				&:hover {
+					color: #333;
+					cursor: pointer;
+				}
+			}
+			ul {
+				a {
+					cursor: pointer;
+				}
+			}
+		}
+
+		.content-left, .content-right {
+			@include centerElementVerticallyAbsolute();
+		}
+
+		.content-left {
+			left: 0;
+
+			ul {
+				margin-bottom: 0;  // bootstrap override
+				li {
+					display: inline;
+					font-size: $txt-small;
+					margin-left: 10px;
+					margin-right: 5px;
+					position: relative;
+					vertical-align: middle;
+					font-style: italic;
+
+					&:before {
+						content: '';
+						height: 5px;
+						width: 5px;
+						background-color: blue;
+						position: absolute;
+						left: -10px;
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
+				.value {
+					font-style: normal;
+					font-weight: bold;
+				}
+			}
+
+			.cash-area {
+				$box-height: 75px;
+				height: $box-height;
+				width: 525px;
+				display: table;
+				margin: 10px 0;
+				.items-and-amount {
+					display: table-cell;
+					width: 75%;
+					// background-color: DarkTurquoise;
+					background-color: #ccc;
+					color: white;
+					line-height: $box-height;
+					padding: 5px 25px 0;
+
+					.number-items {
+						float: left;
+						font-size: $txt-medium;
+					}
+
+					.order-total {
+						float: right;
+						font-size: $txt-xlarge;
+						.smaller {
+							font-size: $txt-medium;
+						}
+
+					}
+				}
+
+ 				.cash-available {
+					// background-color: PaleTurquoise;
+					background-color: #eee;
+					display: table-cell;
+					vertical-align: middle;
+					text-align: center;
+
+					.image-container {
+						height: 35px;
+						width: 35px;
+						overflow: hidden;
+						margin: 0 auto;
+					}
+ 					.label {
+						font-size: $txt-small;
+						color: #888;
+						position: relative;
+						top: 10px;
+					}
+				}
+			}
+
+
+		}
+
+		.content-right {
+			right: 0;
+			text-align: right;
+			font-size: $txt-small;
+
+			bh-stage-progress-indicator {
+				display: inline-block;
+				position: relative;
+				right: -15px;
+				margin: 25px 0;
+			}
+			.bid-info {
+
+				.high-priority-indicator {
+					background-color: crimson;
+					color: white;
+	 				display: inline-block;
+	 				padding: 5px 10px;
+	 				margin-right: 10px;
+
+					i {
+						margin-right: 10px;
+					}
+				}
+				.bid-id {
+					display: inline-block;
+
+					b {
+						font-size: $txt-medium;
+					}
+				}
+			}
+		}
+
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+
+	}
+
+	.days-left-notification {
+		@include centerElementVerticallyAbsolute();
+
+		$diameter: 140px;
+		width: $diameter;
+		height: $diameter;
+		border-radius: $diameter / 2;
+		text-align: center;
+		left: 725px;
+		color: white;
+		background-color: crimson;
+		border: 10px solid #ddd;
+
+		.text {
+			position: relative;
+			top: 50%;
+			transform: translateY(-60%) rotate(-10deg);
+
+			.num-days {
+				font-size: $txt-xlarge;
+				position: relative;
+				top: 5px;
+			}
+			.days {
+				font-size: $txt-medium;
+			}
+			.remaining {
+				font-size: $txt-small;
+			}
+		}
+	}
+}

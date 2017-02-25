@@ -1,0 +1,244 @@
+#details-bid-setting-modal {
+	$side-padding: 35px;
+	
+
+	.modal-header {
+		color: yellowgreen;
+		padding: 15px $side-padding;
+		i.gear, p {
+			display: inline;
+			vertical-align: middle;
+		}
+
+		i.gear {
+			font-size: $txt-xlarge;
+		}
+
+		p {
+			margin-left: 25px;
+			font-size: $txt-large;
+		}
+
+		i.closer {
+			font-size: $txt-large;
+			color: #aaa;
+			position: absolute;
+			top: 10px;
+			right: 15px;
+			cursor: pointer;
+
+			&:hover {
+				color: #888;
+			}
+		}
+	}
+
+	.modal-body {
+		padding: 10px $side-padding;
+		$large-box-height: 50px;
+		$large-box-width: 200px;
+
+		ul.setup-fields {
+			@include layout2Column();
+
+			&>li {
+				height: 150px;
+			}
+
+			.bid-type {
+				position: relative;
+				z-index: 10000;
+
+				&:hover .clicker i {
+					color: $link-hover-color;
+				}
+
+				input {
+
+					border: 1px solid #333;
+					font-size: $txt-medium;
+					width: $large-box-width;
+					height: $large-box-height;
+					line-height: 1;
+					padding-left: 10px;
+					cursor: pointer;
+					@include preventSelect();
+
+					&:hover {
+						box-shadow: inset 0px 0px 10px $link-color;
+					}
+				}
+
+				.clicker {
+					i {
+						font-size: 18px;
+						color: $link-color;
+						display: block;
+						cursor: pointer;
+						position: absolute;
+						top: 50%;
+						transform: translateY(-50%);
+						right: 10px;
+						pointer-events: none;
+					}
+				}
+
+				ul {
+					min-width: $large-box-width;
+					text-align: left;
+
+					a {
+						cursor: pointer;
+						padding-right: 30px;
+						font-size: $txt-medium;
+					}
+				}
+
+
+			}
+
+
+			.high-priority-toggle {
+				button {
+					font-size: $txt-medium;
+					border: 1px solid #333;
+					height: $large-box-height;
+					width: $large-box-width;
+					background-color: white;
+					box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+					&.high {
+						color: red;
+					}
+
+					&:hover {
+						box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2), 0 4px 15px 0 rgba(0,0,0,0.19);
+					}
+				}
+			}
+
+			.commitment-date-range {
+				.missing-one-of-dates-error {
+						position: absolute;
+						bottom: -25px;
+						left: 0;
+						color: red;
+						display: none;
+					}
+
+				&.one-date-missing  {
+					.missing-one-of-dates-error {
+						display: block;
+					}
+					input {
+						border-color: red !important;
+					}
+				}
+			}
+
+			.commitment-date-range, .due-date-time {
+				width: 240px;
+				$box-width: 115px;
+				position: relative;
+
+				date-picker-directive {
+					display: inline-block;
+
+					&:nth-of-type(1) {
+						float: left;
+					}
+					&:nth-of-type(2) {
+						float: right;
+					}
+
+				}
+
+				ng-include {
+					float: right;
+				}
+
+				&:after {
+					@include clearfix();
+				}
+
+				.date-picker, .hour-picker {
+					position: relative;
+
+
+					&:hover .clicker i {
+						color: $link-hover-color;
+					}
+
+					input {
+						font-size: $txt-medium;
+						$box-height: 35px;
+						height: $box-height;
+						width: $box-width;
+						padding: 2px 0 0 5px;
+						border: 1px solid #333;
+						position: relative;
+						cursor: pointer;
+						@include preventSelect();
+
+						&.active {
+							border-color: blue;
+						}
+					}
+
+					p {
+						margin-left: 5px;
+					}
+					.clicker {
+						i {
+							font-size: 18px;
+							color: $link-color;
+							display: block;
+							cursor: pointer;
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							right: 5px;
+							pointer-events: none;
+						}
+					}
+				}
+				.hour-picker {
+					ul {
+						min-width: $box-width;
+						text-align: right;
+						a {
+							cursor: pointer;
+							padding-right: 30px;
+						}
+					}
+					.open input {
+						border-color: blue;
+					}
+				}
+			}
+		}
+
+		.field-label {
+			font-size: $txt-medium;
+			font-style: italic;
+			color: #888;
+		}	
+	}
+
+
+	.modal-footer  {
+		padding: 15px $side-padding;
+
+		button {
+			margin-left: 15px;
+		}
+	}
+
+	pre {
+		position: absolute;
+		left: -600px;
+		top: -200px;
+		height: 900px;
+	}
+
+}

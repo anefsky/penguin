@@ -1,0 +1,85 @@
+{  
+   "status":"SUCCESS",
+   "statusCode":200,
+   "data":{  
+      "id":"143214",
+      "stage":"BIDS_BIDDER_1",
+      "status":"ACTIVE",
+      "priority":{  
+         "id":"NORMAL",
+         "label":"Normal"
+      },
+      "bidder":{  
+         "bidder":{  
+            "userId":"yolef",
+            "name":"Andrew Nefsky",
+            "extension":"2528",
+            "email":"yolef@bhphotovideo.com"
+         }
+      },
+      "orderNumber":"602298400",
+      "orderDate":1461211200000,
+      "orderTotal":33414.67,
+      "allOrNone":false,
+      "freightCharge":0.0,
+      "shipVia":"STANDARD",
+      "discount":0.0,
+      "commitmentDate":{  
+
+      },
+      "shipOrderComplete":false,
+      "itemCount":25,
+      "customer":{  
+         "custCode":"75077547",
+         "companyName":"SHELBY MILLS",
+         "industry":"Federal Government",
+         "classification":"Federal",
+         "status":"Permanent",
+         "reseller":false,
+         "contactName":"TOM COLE",
+         "shippingCity":"BAY PINES",
+         "shippingState":"FL",
+         "shippingZipCode":"33744",
+         "billingCity":"BAY PINES",
+         "billingState":"FL",
+         "billingZipCode":"33744"
+      },
+      "bidOptions":{  
+         "bidType":[  
+            {  
+               "label":"Bid",
+               "id":"BID"
+            },
+            {  
+               "label":"Sealed Bid",
+               "id":"SEALED_BID"
+            },
+            {  
+               "label":"Quote",
+               "id":"QUOTE"
+            }
+         ],
+         "priority":[  
+            {  
+               "id":"NORMAL",
+               "label":"Normal"
+            },
+            {  
+               "id":"HIGH",
+               "label":"High"
+            }
+         ]
+      },
+      "stageNumber":1,
+      "searchRequest":{  
+         "filters":{  
+            "bidId":"143214"
+         },
+         "pageInfo":{  
+            "startIndex":0,
+            "maxNumberRecords":1000
+         },
+         "sortBy":"LINE_NO"
+      }
+   }
+}

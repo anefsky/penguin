@@ -1,0 +1,86 @@
+.details-pagination-panel {
+
+	& {
+		background-color: transparent; 
+		display: table;
+		width: $content-width;
+		padding: 5px 0 0 0;
+		margin: 0 auto;
+	}
+
+	& > div {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.widget-container  {
+		text-align: right;
+	}
+
+	.gear-holder {
+		width: 40px;
+		text-align: center;
+	}
+
+	.fa-cog {
+		font-family: FontAwesome;
+		content: "\f013"; /* cog */
+		font-size: 18px;
+		color: $link-color;
+		display: block;
+		cursor: pointer;
+
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
+
+	.pagination-caption {
+		font-size: 14px;
+		text-align: left;
+		padding-left: 0px;
+	}
+
+
+	.pagination-sm { 
+		margin: 0;
+	}
+
+	.pagination-sm > li > a {
+		font-size: 14px;
+	}
+
+
+	.items-per-page-caption {
+		right: 160px;
+		font-size: 16px;
+		display: none;
+	}
+
+	.popover {
+		margin: 12px 3px 0 10px;
+		background-color: mistyrose;
+	}
+
+	.popover-content {
+		display: inline-flex; /* horizonal alignment of buttons */
+	}
+
+	.popover-title {
+		font-style: italic;
+	}
+
+	.popup-closer {
+		position: absolute;
+		top: 6px;
+		right: 8px;
+		color: gray;
+		cursor: pointer;
+	}
+
+	.popup-closer:hover {
+		color: $close-dialog-color;
+	}
+}
+
+	

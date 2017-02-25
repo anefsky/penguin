@@ -1,0 +1,107 @@
+<div id="details-bid-setting-modal">
+
+	<pre ng-show="false">{{ sharedData.params | json }}</pre>
+
+	<div class="modal-header">
+		
+		<i class="gear fa fa-cog"></i><p>BID SETUP</p>
+		<i ng-click="cancel()" class="closer fa fa-times"></i>
+
+	</div>
+
+	<div class="modal-body">
+
+		<ul class="setup-fields">
+
+			<li>
+				<div class="bid-type" ng-controller="bidTypePickerCtrl">
+					<p class="field-label">Bid Type</p>
+
+		 			<div class="dropdown" uib-dropdown on-toggle="toggled(open)">
+				 		<div href uib-dropdown-toggle>
+				            <input readonly value="{{ data.selected.label }}"/>
+				            <div class="clicker"><i class="fa fa-chevron-down"></i></div>
+				 		</div>
+				 		<ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+				 			<li ng-repeat="option in sharedData.readOnly.bidTypeOptions">
+				 				<a ng-click="data.selected=option">{{ option.label }}</a>
+				 			</li>
+			 			</ul>
+			 		</div>
+
+				</div>
+			</li>
+
+			<li>
+				<div class="high-priority-toggle" ng-controller="priorityPickerCtrl">
+					<p class="field-label">Priority</p>
+					<button type="button" class="btn" 
+							ng-class="{ 'high': data.selected.id === 'HIGH'}" 
+							ng-click="selectNextPriority()">
+						<i ng-if="data.selected.id === 'HIGH'" class="fa fa-exclamation-triangle"></i>
+						<span>{{ data.selected.label }} Priority</span>
+					</button>
+				</div>
+			</li>
+
+ 			<li>
+ 				<div ng-class="{'commitment-date-range':true, 'one-date-missing': onlyOneCommitmentDatePicked}">
+ 					<p class="field-label">Commitment Date Range</p>
+					<date-picker-directive widget-id="commitmentStart" sets-min-on="commitmentEnd"></date-picker-directive>
+					<date-picker-directive widget-id="commitmentEnd" sets-max-on="commitmentStart"></date-picker-directive>
+					<div class="missing-one-of-dates-error">Both start and end dates required</div>
+				</div>
+			</li>
+
+			<li>
+ 				<div class="due-date-time">
+ 					<p class="field-label">Due Date and Time</p>
+					<date-picker-directive widget-id="dueDate"></date-picker-directive>
+					<ng-include src="'tpl-hour-picker.html'"></ng-include>
+				</div>
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn btn-primary" type="button" ng-click="save()">Save</button>
+		<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+	</div>
+
+</div>
+
+<!-- templates -->
+
+<script type="text/ng-template" id="tpl-date-picker.html">
+
+       <div class="date-picker">
+            <input readonly ng-click="popup.opened = !popup.opened" type="text"
+            	uib-datepicker-popup="{{ format }}" ng-model="data.selected" is-open="popup.opened" 
+	            min-date="sharedData.minDate" max-date="sharedData.maxDate" datepicker-options="dateOptions" 
+	            date-disabled="disabled(date, mode)" close-text="Close" ng-class="{'active': popup.opened}"/>
+            <div class="clicker"><i class="fa fa-calendar"></i></div>
+        </div>
+
+</script>
+
+<script type="text/ng-template" id="tpl-hour-picker.html">
+	<div ng-controller="hourPickerCtrl">
+       <div class="hour-picker">
+
+ 			<div class="dropdown" uib-dropdown on-toggle="toggled(open)">
+		 		<div href uib-dropdown-toggle>
+		            <input readonly value="{{ data.selected.label }}"/>
+		            <div class="clicker"><i class="fa fa-clock-o"></i></div>
+		 		</div>
+		 		<ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+		 			<li ng-repeat="choice in choices">
+		 				<a ng-click="data.selected=choice">{{ choice.label }}</a>
+		 			</li>
+	 			</ul>
+	 		</div>
+
+        </div>
+	</div>
+</script>
+

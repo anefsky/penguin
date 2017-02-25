@@ -1,0 +1,10 @@
+<div ng-controller="todoSubjectSelectCtrl" class="todo-subject-select-panel">
+
+	<div class="btn-group">
+
+        <label class="btn btn-primary all-bidders" ng-model="radioModel" uib-btn-radio="'Left'" ng-click="setToAllBidders()">All bidders</label>
+        <label ng-class="['btn', 'btn-primary', 'single-bidder', userType]" ng-model="radioModel" uib-btn-radio="'Right'">{{ userFullName }}</label>
+
+   </div>
+
+</div>

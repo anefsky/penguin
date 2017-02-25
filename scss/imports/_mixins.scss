@@ -1,0 +1,85 @@
+
+
+@mixin background-striper( $stripe-color-1, $stripe-color-2, $stripe-width) { 
+	// https://24ways.org/2011/css3-patterns-explained/
+	background: linear-gradient(45deg, $stripe-color-2 25%,
+		$stripe-color-1 25%, $stripe-color-1 50%,
+		$stripe-color-2 50%, $stripe-color-2 75%, 
+		$stripe-color-1 75%);
+	background-size: $stripe-width $stripe-width;
+}
+
+
+@mixin fadeout-left-right-edges($width, $color) {
+	// left/right sides only, http://www.codealpha.net/840/css3-box-shadow-on-left-and-right-sides-only/
+	box-shadow: 
+  inset $width 0 $width (-$width) $color,
+  inset (-$width) 0 $width (-$width) $color;
+}
+
+@mixin clearfix() {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@mixin clearfix2() {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+
+@mixin centerElementVerticallyRelative() {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+
+@mixin centerElementVerticallyAbsolute() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+
+@mixin layout2Column() {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    @include clearfix();
+
+    &>li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &:nth-child(odd) {
+        float: left;
+        clear: both;
+      }
+      &:nth-child(even) {
+        float: right;
+      }
+      &>* {
+        @include centerElementVerticallyRelative();
+      }
+  }
+}
+
+@mixin preventSelect() {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently */
+}
+
+@mixin centerTextInCircleWithBorder($side-length, $border-thickness) {
+  height: $side-length;
+  width: $side-length;
+  border-radius: $side-length / 2;
+  line-height: $side-length - $border-thickness * 2;
+}

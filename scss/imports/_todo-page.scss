@@ -1,0 +1,77 @@
+#todo-page {
+
+	& {
+		width: $page-width;
+		margin: 0 auto;
+		padding: 10px 0;
+		min-height: 1000px;
+	}
+	
+	#container-todo-header {
+	}
+
+	#todo-left-panel {
+		margin-top: 5px;
+		margin-bottom: 50px;
+		width: 60%;
+		float: left;
+	}
+
+	#todo-right-panel {
+		margin-top: 5px;
+		width: calc(40% - 5px);
+		height: 1800px;
+		float: right;
+	}
+
+	#container-todo-subject-select-panel {
+		width: 100%;
+		height: 50px;
+		margin-bottom: 5px;
+	}
+
+	#container-todo-filter-panel {
+		width: 100%;
+		height: 150px;
+		margin-bottom: 5px;
+	}
+
+	#container-todo-snapshot-filter-panel {
+		height: 175px;
+		margin-bottom: 5px;
+	}
+
+	#container-todo-snapshot-bidders-buyers {
+		margin-bottom: 5px;
+	}
+
+	#container-todo-bids-list {
+		width: 100%;
+		min-height: 300px;
+	}
+
+	.container-todo-pagination-panel.bottom {
+		margin-top: 5px;
+	}
+
+	.bottom .bh-centered-icon + .todo-pagination-panel { /* hide during page load */
+		visibility: hidden
+	}
+
+	.container-todo-pagination-panel.bottom .fa-cog { /* no gear on bottom pagination panel */
+		visibility: hidden;
+	}
+
+	.container-details-pagination-panel.bottom .fa-cog { /* no gear on bottom pagination panel */
+		visibility: hidden;
+	}
+
+	pre {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+
+}
+
+	

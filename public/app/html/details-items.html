@@ -1,0 +1,178 @@
+<div id="details-items" ng-controller="detailsItemsCtrl">
+	<div ng-repeat="item in itemData.items" data-item-number="{{ item.bidItemNumber}}" 
+		ng-controller="itemCtrl" class="single-item">
+
+		<div class="column line-num">
+			<div class="content">
+				<div class="label-text">line #</div>
+				<div class="number"><b>{{ item.lineNum }}</b></div>
+			</div>
+		</div>
+
+
+		<div class="column product-info">
+			<div class="content">
+				<div class="quantity">{{ item.quantity | number }}</div>
+				<div class="image-holder">
+					<img ng-src="{{ item.imgLink }}" err-src="assets/images/white-square-100x100.png">
+				</div>
+				<div class="info-panel">
+					<div class="info-panel-contents">
+						<div class="logo-image-holder">
+							<img ng-src="{{ item.manufacturerLogo }}"/>
+						</div>
+						<div class="item-description">
+							{{ item.description }}
+						</div>
+						<div class="item-numbers">
+							<table>
+								<tr>
+									<td>B&amp;H #</td>
+									<td>{{ item.id }}</td>
+								</tr>
+								<tr>
+									<td>CAT #</td>
+									<td>{{ item.catalogueNumber }}</td>
+								</tr>
+							</table>
+
+						</div>
+
+						<div class="bottom-section">
+							<div class="inventory">
+								<table>
+									<tr>
+										<td>On Hand</td>
+										<td>{{ item.qtyOnHand }}</td>
+									</tr>
+									<tr>
+										<td>On PO</td>
+										<td>{{ item.qtyOnPo }}</td>
+									</tr>
+									<tr>
+										<td>Recent Sales</td>
+										<td></td>
+									</tr>
+								</table>
+							</div>
+
+							<div class="shipping">
+								<table>
+									<tr>
+										<td>Weight</td>
+										<td>{{ item.weight }} {{ item.weightUnit }}</td>
+									</tr>
+								</table>
+							</div>
+
+						</div>
+					</div>
+				</div>			
+			</div>
+		</div>
+
+
+		<div class="column history-info">
+			<div class="header">
+				<i class="icon fa fa-clock-o"></i>
+				<div class="text">History</div>
+			</div>
+			<div class="content">
+				
+			</div>
+		</div> 
+
+		<div class="column cost-info">
+			<div class="header">
+				<i class="icon fa fa-dollar"></i>
+				<div class="text">Cost</div>
+			</div>
+			<div class="content">
+				
+			</div>
+		</div>
+
+
+		<div class="column sell-info">
+			<div class="header">
+				<i class="icon fa fa-shopping-cart"></i>
+				<div class="text">Sell</div>
+			</div>
+			<div class="content">
+				
+			</div>
+		</div>
+
+		<div class="column price-info">
+			<div class="content">
+ 				<div class="top-section">
+
+ 					<div class="price-entry-section">
+ 						<div class="price-entry-contents">
+ 							<div class="section-title">Revise</div>
+							<bh-input-dollars-and-cents class="price-input" 
+							drctv-model="item.price" broadcast-id-prefix="save-item-price-update">
+							</bh-input-dollars-and-cents>
+							<div class="discount-entries">
+								<div class="dollars">
+									$
+								</div>
+								<div class="percent">
+									%
+								</div>
+
+							</div>
+  						</div>
+ 					</div>
+
+ 					<div class="buttons-section">
+ 						<div class="buttons-section-contents">
+ 							<div class="button-leave-as-is">
+ 								Leave<br/>as is
+
+							</div>
+
+ 							<bh-button-with-delay class="button-buyer-review"
+							ng-show="{{ item.buyerCode != '' }}" text-on="{{ item.buyerCode }}" text-off="{{ item.buyerCode }}"
+							drctv-model="item.requireBuyersReview" broadcast-id-prefix="update-require-buyers-review">
+							</bh-button-with-delay>
+		 				</div>
+
+ 					</div>
+
+ 				</div>
+
+ 				<div class="bottom-section">
+
+  					<div class="total" ng-class="{
+  							'small-number': getTotalPrice() > 0 && getTotalPrice() < 10000, 
+  							'large-number': getTotalPrice() >= 10000}">
+	 	 				<div class="order-total" >
+			 	 			<span class="dollar-sign">$</span>
+	 	 					<span class="dollars">{{ getTotalDollars() | currency:"":0 }}</span>.
+				 			<span class="cents">{{ getTotalPrice() | bhGetCentsFromDollars }}</span>
+	 	 				</div>
+
+	 				</div>
+
+ 					<div class="available">
+
+ 					</div>
+
+ 				</div>
+
+			</div>
+		</div>
+
+		<div class="column lock-action">
+			<div class="content">
+				<i class="fa fa-check-square-o"></i>
+				<i class="fa fa-lock"></i>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+

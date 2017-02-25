@@ -1,0 +1,26 @@
+
+<div class="total-bids">		
+	<div class='qty'>{{ data.total.choices[0].qty }}</div>
+	<div class='caption'>{{ data.total.choices[0].caption }}</div>
+	<a class='clickable-area' ng-click="clearAll(); handleClick($event, 'clear-all')"></a>
+</div>			
+
+<div class="radio-buttons-set" ng-repeat="radioSetName in radioSetNames">
+	<bh-param-share param-name="{{ radioSetName }}" 
+		ng-init="modelKey=getModelKey(radioSetName); addSetNameAndModelKey(radioSetName, modelKey)";
+		default-value="null" default-type="null">
+		<div class="radio-item" ng-repeat="choice in data[radioSetName].choices" 
+			ng-init="uniqId=radioSetName" ng-class="{unselectable:choice.qty == 0}">
+			<label for="{{ uniqId + '_' + $index }}">
+				<div class="qty">{{ choice.qty }}</div>
+				<div class="caption">{{ choice.caption }}</div>
+			</label>
+			<input type="radio" id="{{ uniqId + '_' + $index }}" name="{{ uniqId }}" 
+				value="{{ choice.value }}" ng-model="data[modelKey]" 
+				ng-click="handleClick($event, radioSetName); handleChange()">
+			<div class="selected-indicator"></div>	
+		</div>  
+	</bh-param-share>	
+
+</div>
+

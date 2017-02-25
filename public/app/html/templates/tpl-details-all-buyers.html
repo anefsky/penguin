@@ -1,0 +1,19 @@
+<div class="all-buyers">
+	<div class="main-container">
+		<a class="mover move-right" ng-click="moveToRight()"><i class="fa fa-chevron-left"></i></a>
+		<a class="mover move-left" ng-click="moveToLeft()"><i class="fa fa-chevron-right"></i></a>
+		<div class="set-container">
+			<ul class="set">
+				<li ng-repeat="buyer in data.allBuyers" class='single-section' ng-class="{'selected': buyer.isSelected}" 
+					ng-click="selectBuyer(buyer); loadItemsFirstPage(); handleChange()">
+						<div class="text">
+							<div class="name">{{ buyer.name }}</div>
+							<div class="item-count">{{ buyer.itemCount }} Item<span ng-show="buyer.itemCount !== 1">s</span></div>
+						</div>
+				</li> 		
+			</ul>
+		</div>
+	</div>
+</div>
+
+

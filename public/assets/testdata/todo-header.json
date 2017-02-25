@@ -1,0 +1,13 @@
+{  
+   "status":"SUCCESS",
+   "statusCode":200,
+   "data":{  
+      "userId":"andrencs",
+      "name":"Andrew Nefsky",
+      "email":"andrencs@bhphotovideo.com",
+      "userType":{  
+         "type":"Super-User",
+         "role":"USER"
+      }
+   }
+}

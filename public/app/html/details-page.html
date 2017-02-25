@@ -1,0 +1,35 @@
+<div id="details-page" ng-controller="detailsPageCtrl">
+
+	<pre ng-show='false'>{{ pagedata | json }}</pre>
+
+	<div id="main-content">
+
+		<section bh-waiting-div
+			class=""
+			included-partial='app/html/details-header.html'>
+		</section>
+
+		<section bh-waiting-div
+			class=""
+			included-partial='app/html/details-buyers.html'>
+		</section>
+
+		<section bh-waiting-div show-spinner="false"
+			class="container-details-pagination-panel top"
+			id="go-here-for-subsequent-page-changes"
+			included-partial='app/html/details-pagination-panel.html'>
+		</section>
+
+		<section bh-waiting-div
+			id="container-details-bids-list"
+			included-partial='app/html/details-items.html'>
+		</section>
+
+		<section bh-waiting-div show-spinner="false" ng-show="showBottomPaginationPanel"
+			class="container-details-pagination-panel bottom"
+			included-partial='app/html/details-pagination-panel.html'>
+		</section>
+
+	</div>
+
+</div>

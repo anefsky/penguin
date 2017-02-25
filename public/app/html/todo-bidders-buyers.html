@@ -1,0 +1,42 @@
+<div ng-controller="todoBiddersBuyersCtrl" 
+	ng-class="['todo-bidders-buyers', panelProps.panelClass]">
+
+	<div class="heading">
+		<ul class="list">
+			<li>
+				<p class="name">{{ panelProps.fieldHeadings[0] }}</p>
+				<p class="qty">{{ panelProps.fieldHeadings[1] }}</p>
+				<p class="qty">{{ panelProps.fieldHeadings[2] }}</p>
+				<p class="qty"><span class="total">{{ data.total || 0 }}</span> BIDS</p>
+			</li>
+		</ul>
+	</div>
+
+	<div class="contents">
+		<ul class="list" ng-init="modelKey='selected_id'">
+			<bh-param-share param-name="bidderOrBuyer" 
+					
+					default-value="null" default-type="null">
+				<li ng-repeat="person in data.persons">
+					<input type="radio" id="{{ buttonId }}" type="radio" name="person" 
+						value="{{ person.user_id }}" 
+						ng-init="buttonId = panelProps.panelClass + '_' + $index"
+						ng-model="data[modelKey]"
+						ng-click="handleChange(); updatePageSubjectTag()">
+					<div class="triangle-left"></div>
+					<label for="{{ buttonId }}">
+						<div class="skin"></div>
+					</label>
+					<p class="name">{{ person.name }}</p>
+					<p class="qty">{{ person.stage_1_qty }}</p>
+					<p class="qty">{{ person.stage_3_qty }}</p>
+					<p class="qty"><b>{{ person.total }}</b></p>
+				</li>
+			</bh-param-share>
+		</list>
+	</div>
+	<pre id='info' ng-show="false">{{ data | json }}</pre>
+
+
+
+</div>

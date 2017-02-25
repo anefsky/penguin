@@ -1,0 +1,411 @@
+#details-items {
+
+	$border-outside: 1px solid #aaa;
+	$border-inside: 1px dotted #333;
+	$border-inside-column: 1px solid #eee;
+	$header-height-percent: 20%;
+
+ 	.single-item {
+
+ 		$width-column-line-num: 3%;
+ 		$width-column-product-info: 28%;
+ 		$width-column-history-info: 17%;
+ 		$width-column-cost-info: 17%;
+ 		$width-column-sell-info: 14%;
+ 		$width-column-price-info: 18%;
+		$width-column-lock-action: 3%; // not used, should make all columns total 100%
+
+		margin: 10px 0px;
+		box-shadow: 5px 5px 3px #ddd;
+
+ 		display: table;
+ 		width: 100%;
+		height: 175px;
+		border: $border-outside;
+
+
+ 		.column {
+ 			display: table-cell;
+ 			border-right: $border-inside;
+ 			vertical-align: middle;
+ 			text-align: center;
+ 			position: relative;
+ 			&:first-child {
+ 				border-left: none;
+ 			}
+ 			&:last-child {
+ 				border-right: none;
+ 			}
+ 			.header {
+ 				height: $header-height-percent;
+				border-bottom: $border-inside-column;
+ 				text-align: left;
+ 				color: yellowgreen;
+ 				&>* {
+ 					position: relative;
+ 					left: 5px;
+ 					top: 5px;
+ 				}
+ 				.icon {
+ 					display: inline-block;
+ 					font-size: $txt-large;
+ 					margin-right: 5px;
+  				}
+ 				.text {
+					display: inline-block;
+ 					font-size: $txt-xsmall;
+ 				}	
+ 			}
+
+  			.content {
+ 				position: relative;
+ 				margin: 0 auto;
+
+			}
+
+
+  			&.line-num {
+ 				vertical-align: top; // override
+  				padding-top: 15px;
+ 				width: $width-column-line-num;
+ 				.content {
+ 					display: inline-block;
+					.label-text {
+ 						font-size: small;
+ 					}
+ 					.number {
+ 						text-align: left;
+ 						font-size: medium;
+ 					}
+ 				}
+ 			}
+ 			&.product-info {
+ 				width: $width-column-product-info;
+ 				position: relative;
+ 				.content {
+ 					height: 100%;
+ 					width: 95%;
+ 					position: relative;
+ 					.quantity {
+ 						text-align: center;
+ 						position: absolute;
+ 						top: 5px;
+ 						left: -5px;
+ 						$side-length: 50px;
+ 						$border-thickness: 3px;
+ 						@include centerTextInCircleWithBorder($side-length, $border-thickness);
+ 						border: $border-thickness solid midnightblue;
+ 						color: midnightblue;
+ 						background-color: white;
+ 						transform: rotate(-10deg);
+ 						font-size: $txt-small;
+ 						z-index: 10;
+ 					}
+ 					.image-holder {
+ 						@include centerElementVerticallyAbsolute();
+ 						left: 0;
+						img {
+ 							width: auto;
+ 							height: 125px;
+ 						}
+ 					}
+ 					.info-panel {
+ 						font-size: $txt-xxsmall;
+ 						@include centerElementVerticallyAbsolute();
+ 						right: 0;
+						display: inline-block;
+						width: 55%;
+						.info-panel-contents {
+							height: 100%;
+							.logo-image-holder {
+								margin-bottom: 5px;
+								text-align: left;
+								img {
+									height: 40px;
+									width: auto;
+								}
+							}
+	 						.item-description {
+	 							text-align: left;
+	 							overflow: hidden;
+	 							white-space: nowrap;
+	 							text-overflow: ellipsis;
+	 							color: #aaa;
+	 							margin-bottom: 5px;
+	 						}
+	 						.item-numbers {
+	 							table {
+	 								width: 100%;
+	 								tr {
+	 									td {
+	 										text-align: left;
+	 									}
+	 									td:nth-child(1) {
+	 										color: #aaa;
+	 										width: 30%;
+	 									}
+	 									td:nth-child(2) {
+	 										color: #222;
+	 									}
+	 								}
+	 							}
+	 						}
+	 						.bottom-section {
+	  							margin-top: 5px;
+	 							table {
+	 								width: 100%;
+	 								tr {
+	 									td:nth-child(1) {
+	 										text-align: left;
+	 										color: #aaa;
+	 									}
+	 									td:nth-child(2) {
+	 										text-align: right;
+	 										color: #222;
+	 									}
+	 								}
+	 							}
+	 							.inventory {
+	 								width: 50%;
+	 								float: left;
+	 								td:nth-child(1) {
+	 									width: 90%;
+	 								}
+	 							}
+	 							.shipping {
+	 								width: 40%;
+	 								float: right;
+									td:nth-child(1) {
+	 									width: 40%;
+	 								}
+	  							}
+	 						}
+	 					}
+					}
+ 				}
+ 			}
+ 			&.history-info {
+ 				width: $width-column-history-info;
+ 				.content {
+ 					height: 100% - $header-height-percent;
+ 				}
+ 			}
+ 			&.cost-info {
+ 				width: $width-column-cost-info;
+ 				.content {
+ 					height: 100% - $header-height-percent;
+ 				}
+  			}
+ 			&.sell-info {
+ 				width: $width-column-sell-info;
+ 				.content {
+ 					height: 100% - $header-height-percent;
+ 				}
+  			}
+ 			&.price-info {
+ 				width: $width-column-price-info;
+ 				position: relative;
+ 				$left-side-width: 57%;
+ 				$right-side-width: 40%;
+ 				.content {
+  					height: 90%;
+  					width: 90%;
+  					$top-section-height: 70%;
+  					.top-section {
+  						height: $top-section-height;
+  						position: relative;
+  						.price-entry-section {
+  							width: $left-side-width;
+  							height: 90%;
+  							position: relative;
+  							.price-entry-contents {
+ 								@include centerElementVerticallyAbsolute();
+ 								width: 100%;
+
+ 								.section-title {
+ 									text-align: left;
+ 									font-size: $txt-small;
+ 									color: goldenrod;
+ 								}
+ 								.price-input {
+ 									display: inline-block;
+ 									margin: 8px 0;
+ 									position: relative;
+ 									&:before {
+ 										content: '$';
+ 										@include centerElementVerticallyAbsolute;
+ 										left: 5px;
+  										z-index: 100;
+ 										color: #aaa;
+ 									}
+ 								}
+ 								.discount-entries {
+ 									height: 25px;
+ 									position: relative;
+ 									text-align: left;
+ 									&>* {
+ 										height: 100%;
+ 										line-height: 25px;
+ 										border: 1px solid #aaa;
+ 										position: absolute;
+ 										padding-left: 3px;
+ 										color: gray;
+  									}
+ 									.dollars {
+ 										left: 0;
+ 										width: 55%;
+ 									}
+ 									.percent {
+ 										right: 0;
+ 										width: 40%;
+  									}
+ 								}
+  							}
+  						}
+  						.buttons-section {
+  							width: $right-side-width;
+  							height: 90%;
+  							@include centerElementVerticallyAbsolute();
+  							right: 0;
+  							.buttons-section-contents {
+ 								@include centerElementVerticallyAbsolute();
+ 								height: 90%;
+ 								position: relative;
+
+ 								.button-leave-as-is {
+ 									font-size: $txt-small;
+ 									text-align: center;
+ 									border: 1px solid gray;
+ 									width: 70px;
+ 									position: absolute;
+ 									top: 0;
+ 									right: 0;
+ 								}
+
+ 								.button-buyer-review {
+ 									position: absolute;
+ 									bottom: 0;
+ 									right: 0;
+ 								}
+  							}
+  						}
+
+  					}
+  					.bottom-section {
+  						height: 100% - $top-section-height;
+ 						position: relative;
+
+ 						.total {
+
+ 							width: $left-side-width;
+ 							position: absolute;
+ 							left: 0;
+ 							bottom: 0;
+ 							display: none;
+
+							&.small-number {
+								display: block;
+								.dollar-sign {
+									font-size: $txt-small;
+								}
+								.dollars {
+									font-size: $txt-large;
+								}
+								.cents {
+									font-size: $txt-small;
+								}
+							}
+
+							&.large-number {
+								display: block;
+								.dollar-sign {
+									// display: none;
+								}
+								.dollars {
+									font-size: $txt-small;
+								}
+								.cents {
+									font-size: $txt-small;
+								}
+							}
+
+							&:before {
+		 						content: 'Total';
+		 						position: absolute;
+		 						bottom: 25px;
+		 						right: 0;
+		 						font-size: $txt-xsmall;
+		 						color: #aaa;
+		 					}
+ 		 					
+		 					.order-total {
+		 						text-align: right;
+		 					}
+
+	 					}
+
+ 						.available {
+  							width: $right-side-width;
+  							right: 0;
+ 						}
+ 
+  					}
+ 				}
+ 			}
+ 			&.lock-action {
+ 				text-align: center;
+ 				.content {
+ 					height: 80%;
+	 				color: #888;
+	 				.fa-check-square-o {
+	 					font-size: $txt-medium;
+	 				}
+	 				.fa-lock {
+	 					font-size: $txt-large;
+	 					position: absolute;
+	 					bottom: 0;
+	 					left: 0;
+	 					right: 0;
+	 				}
+ 				}
+ 			}
+ 		}
+ 	}
+
+	bh-button-with-delay {
+		position: relative;
+		display: inline-block;
+		@include bh-button-with-delay(35px, 70px, $txt-small);
+
+		.button-container {
+			&:before {
+				font-family: FontAwesome;
+				content: "\f059"; // question mark with circle
+				font-size: $txt-medium;
+				@include centerElementVerticallyAbsolute();
+				z-index: 10; 
+				left: 4px;
+				color: indianred;
+				pointer-events: none;
+			}
+			.btn-default {
+				& {
+					border: 1px solid gray;
+				}
+				&:hover {
+					border: 1px solid lightgray;
+				}
+			}
+			.button-text {
+				letter-spacing: 2px;
+				margin-left: 10px;
+			}
+
+			&.on {
+				.button-text, &:before {
+					color: white;
+				}
+			}
+		}
+  	}
+}

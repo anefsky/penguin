@@ -1,0 +1,175 @@
+.todo-bidders-buyers {
+
+	$arrow-height: 25px;
+
+	pre#info { 
+		position: relative; 
+		left: 100px;
+		color: red;
+	}
+
+	& {
+		background-color: white;
+		border: 1px solid #aaa;
+	}
+
+	.contents {
+		width: 100%;
+		margin: 0 auto;
+		position: relative;
+		font-size: 18px;
+		height: 295px;
+
+
+		.list {
+			width: 100%;
+			margin: 0;
+			overflow-y: scroll;
+			height: 100%; // always show scroll to avoid resizing
+
+			li {
+				display: table;
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				padding: 0 25px 0 35px;
+				position: relative;
+
+
+				&:nth-child(even) {
+					background-color: #efefef;
+				}
+
+				p {
+					display: table-cell;
+					color: #333;
+
+					&.name {
+						width: 40%;
+					}
+					&.qty {
+						width: 20%;
+						text-align: right;
+					}
+
+				}
+
+				&:hover p {
+					text-shadow : 0 0 0 #222;
+				}
+
+				label {
+					cursor: pointer;
+					font-weight: normal;
+
+
+					.skin {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+
+					}
+
+				}
+
+				&:last-child {
+					border-bottom: 1px solid #888;
+				}
+				input[type=radio] {
+					display: none;
+					&:checked {
+
+						& ~ .triangle-left { // http://apps.eky.hk/css-triangle-generator/
+							width: 0;
+							height: 0;
+							border-style: solid;
+							border-width: $arrow-height $arrow-height $arrow-height 0;
+							position: absolute;
+							top: 0;
+							left: 0;
+						}
+						& ~ label {
+							font-weight: bold;
+							cursor: default;
+
+							.skin {
+								opacity: 0.3;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.panel-buyers {
+		.heading {
+			background-color: $buyer-color;
+		}
+		.triangle-left {
+			border-color: transparent $buyer-color transparent transparent;
+		}
+		.skin {
+			background-color: $buyer-color;
+		}
+	}
+
+	&.panel-bidders {
+		.heading {
+			background-color: $bidder-color;
+		}
+		.triangle-left {
+			border-color: transparent $bidder-color transparent transparent;
+		}
+		.skin {
+			background-color: $bidder-color;
+		}
+	}
+
+	.heading {
+		height: 50px;
+		background-color: #aaa;
+		color: white;
+
+		.list {
+			width: 100%;
+			margin: 0;
+			font-size: 14px;
+
+			li {
+				display: table;
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				padding: 0 25px 0 35px;
+				&:nth-child(even) {
+					background-color: #eee;
+				}
+
+				p {
+					display: table-cell;
+
+					&.name {
+						font-size: 20px;
+						width: 40%;
+					}
+					&.qty {
+						width: 20%;
+						text-align: right;
+
+						.total {
+							font-size: 20px;
+						}
+					}
+
+				}	
+			}
+		}
+
+
+	}
+}
+

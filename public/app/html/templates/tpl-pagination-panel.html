@@ -1,0 +1,38 @@
+<div class="pagination-caption">{{ getPaginationCaption() }}</div>
+
+<div class="widget-container">
+
+	<bh-param-share param-name="pageNumber" default-value="1" default-type="integer"
+		ng-init="modelKey='currentPage'"> 
+		<uib-pagination
+			ng-init="itemsPerPage=getItemsPerPage();sayHello('in uib-pagination')" total-items="data.totalItems"
+			ng-model="data[modelKey]" max-size="data.maxSize"
+			class="pagination-sm" boundary-link-numbers="true"
+			items-per-page="data.itemsPerPage" ng-change="handleChange(); updatePaginatedList()"
+			rotate="false" previous-text="&lsaquo;" next-text="&rsaquo;">
+		</uib-pagination> 
+	</bh-param-share>
+
+</div>
+
+
+<div class='gear-holder'">	
+	<bh-param-share class="btn-group pick-results-per-page" param-name="maxNumberRecords" default-type="integer" 
+			default-value="{{ defaultValue }}" ng-init="modelKey='itemsPerPage';defaultValue=getItemsPerPage()"> 
+  		<i class="fa fa-cog" uib-popover-template="'myPopoverTemplate.html'" popover-placement="auto bottom-right" 
+  			popover-title="Results per page" popover-is-open="popup.isOpen" ng-click="popup.isOpen=!popup.isOpen"></i>
+	</bh-param-share>
+</div>
+
+
+<script type="text/ng-template" id="myPopoverTemplate.html">
+		<label
+		ng-repeat="numItems in data.optionsItemsPerPage"
+		class="btn btn-primary" ng-model="data[modelKey]"
+		uib-btn-radio="numItems"
+		ng-change="handleChange();saveItemsPerPage(numItems); resetToFirstPage(); 
+			refreshPaginatedList();popup.isOpen=false">{{ numItems }}
+		</label> 
+ 		<i class="fa fa-times popup-closer" aria-hidden="true" ng-click="popup.isOpen=false"></i>
+
+</script>

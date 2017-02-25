@@ -1,0 +1,51 @@
+<div class="todo-bids-list" ng-controller="todoBidsListCtrl">
+	<div class="single-bid" ng-repeat="bid in bids" ng-class="[bid.priority, bid.status]">
+		<div class="bid-status" uib-tooltip="{{ bid.status === 'status_hold' ? 'on hold' : 'active' }}"
+		 	tooltip-popup-delay="250" tooltip-placement="right"></div>
+		<div class="bid-content">
+			<div class="top-area">
+				<div class="my-column content">
+					
+					<div class="bid-summary">
+						<div class="high-priority-alert" uib-tooltip="high priority" tooltip-popup-delay="250">!</div>
+						<div class="bid-num">
+							<i>Contract #</i> <b>{{ bid.bidNum }}</b>
+						</div>
+						<div class="due-date" ng-show="bid.dueDateUnixMs">
+							<i>Due </i> <b>{{ bid.dueDateUnixMs | date:'M/dd/yy'}}</b><i>{{  bid.dueDateUnixMs | date:' ha' }}</i>
+						</div>
+					</div>
+	
+					<div class="bid-details">
+						<div class="customer">
+							<div class="parentName">{{ bid.parentName }}</div>
+							<div class="name">{{ bid.customerName }}</div>
+							<div class="location">{{ bid.location }}</div>
+						</div>
+	
+						<div class="amount">{{ bid.amount | currency:"$ ":0 }}</div>
+	
+					</div>
+				</div>
+
+ 				<bh-stage-progress-indicator values="{{ bid.stages.values }}" init-value="{{ bid.stages.selected }}">
+ 				</bh-stage-progress-indicator>
+
+				<a class="my-column navigate" ui-sref="details({ bid_id: bid.bidNum })" target="_blank">
+					<i class="fa fa-chevron-right"></i>
+				</a>
+			</div>
+	
+			<div class="buyer-list">
+				<ul class="initials-list">
+					<li class="initials-holder" ng-class="['initials-holder', buyer.buyerStatus.toLowerCase() ]"  ng-repeat="buyer in bid.buyers">
+						<div class="initials" uib-tooltip="{{ buyer.buyerName }}" tooltip-popup-delay="250">
+							{{ buyer.buyerCode }} </div>
+						<div class="status-indicator" uib-tooltip="{{ getBuyerStatusTooltip(buyer.buyerStatus) }}" tooltip-popup-delay="250"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		
+</div>

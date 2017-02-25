@@ -1,0 +1,85 @@
+<div id="details-header" ng-controller="detailsHeaderCtrl">
+
+	<div class="content">
+
+ 		<div class="dropdown" uib-dropdown on-toggle="toggled(open)">
+
+	 		<a href id="simple-dropdown" uib-dropdown-toggle>
+	 			<i class="fa fa-bars"></i>
+	 		</a>
+
+	 		<ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+	 			<li ng-repeat="option in data.pageOptions">
+	 				<a ng-click="option.action()"><i class="fa {{ option.iconCode}}"></i>{{ option.label }}</a>
+	 			</li>
+ 			</ul>
+
+ 		</div>
+
+		<div class="content-left">
+ 			<div class="date-area">
+ 				<ul class="date-items">
+ 					<li ng-if="data.orderDateUnixMs">Ordered <span class="value">{{ data.orderDateUnixMs | date:'M/dd/yy'}}</span></li>
+ 					<li ng-if="data.commitmentDateStart">Commitment  <span class="value">
+ 						{{ data.commitmentDateStart | date:'M/dd/yy' }} - {{ data.commitmentDateEnd | date:'M/dd/yy' }}</span></li>
+ 					<li ng-if="data.dueDateTime">Due  <span class="value">
+ 						{{ data.dueDateTime | date:'M/dd/yy'}} {{  data.dueDateTime | date:' ha' }}</span></li> 
+ 				</ul>
+ 			</div>
+ 			<div class="cash-area">
+
+ 				
+ 				<div class="items-and-amount"> 		
+ 					<div class='number-items'><b>{{ data.itemCount }}</b> <i>items</i></div>	
+	 				<div class="order-total"><span class="smaller">$</span>
+	 					<span>{{ data.orderTotal.toFixed(0) | currency:"":0 }}</span>.<span class="smaller">
+	 						{{ data.orderTotal | bhGetCentsFromDollars }}
+	 					</span>
+	 				</div>
+ 				</div>
+
+
+ 				<div class="cash-available">
+ 					<div class="image-container">
+ 						<img src="assets/images/discountCash.png"/>
+ 					</div>
+ 					<div class="label"><i>Available</i></div>
+ 				</div>
+
+ 			</div>
+ 			<div class="details-area">
+ 				<ul class="detail-items">
+ 					<li ng-if="data.bidType.label">Type <span class="value">{{ data.bidType.label }}</span></li>
+ 					<li ng-if="data.allOrNone"> <span class="value">{All or None</span></li>
+ 					<li ng-if="data.shipOrderComplete"> <span class="value">{Ship Order Complete</span></li>
+ 					<li ng-if="data.shipVia">Shipping <span class="value">{{ data.shipVia }}</span></li>
+  				</ul>
+ 			</div>
+
+		</div>
+
+		<div class="content-right">
+			<div class='bid-info'>
+				<div ng-show="data.bidPriority.id === 'HIGH'" class="high-priority-indicator">
+					<i class="fa fa-exclamation-triangle"></i>High Priority
+				</div>
+				<div class="bid-id"><i>Bid # </i><b>{{ data.bidId }}</b></div>
+			</div>
+
+			<bh-stage-progress-indicator ng-if='dataLoaded' 
+				values="{{ data.availableStages }}" init-value="{{ data.stageNumber }}">
+			</bh-stage-progress-indicator>
+
+			<div><i>Bidder</i> <b>{{ data.bidderName }}</b> <i>ext</i> <b>{{  data.bidderPhoneExt }}</b></div>
+		</div>
+	</div>
+
+	<div ng-show="doShowDaysRemaining()" class="days-left-notification">
+		<div class="text">
+			<div class="num-days">{{ data.daysRemaining }}</div>
+			<div class="days">day<span ng-if="data.daysRemaining > 1">s</span></div>
+			<div class="remaining">Remaining</div>
+		</div>
+	</div>
+	
+</div>

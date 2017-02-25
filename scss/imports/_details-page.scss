@@ -1,0 +1,34 @@
+#details-page {
+	width: $page-width;
+	margin: 0 auto 0;
+	margin-bottom: 25px;
+
+	
+
+	& section {
+		background-color: white;
+		margin: 2px 0;
+		padding: 5px 25px;
+	}
+
+	.bottom .bh-centered-icon + .details-pagination-panel { /* hide during page load */
+		visibility: hidden
+	}
+
+	.container-details-pagination-panel.bottom .fa-cog { /* no gear on bottom pagination panel */
+		visibility: hidden;
+	}
+
+
+	#container-details-bids-list {
+		min-height: 300px;
+	}
+
+	pre {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+}
+
+

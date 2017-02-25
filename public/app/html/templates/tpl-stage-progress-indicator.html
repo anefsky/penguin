@@ -1,0 +1,11 @@
+<div class="stage-progress-indicator">
+	<div class="radio-buttons">
+		<div class="radio-item" ng-repeat="value in localData.values">
+			<input type="radio" id="{{ 'chart' + $parent.$index + $index }}"
+				name="{{ 'chart' + $parent.$index + $index }}"
+				ng-model="localData.model" value="{{ value }}"> <!-- resplace ng-model hardcoded with localData.model value -->
+				<label for="{{ 'chart' + $parent.$index + $index }}">
+				{{ value }}</label>
+		</div>
+	</div>
+</div>

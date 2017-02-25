@@ -1,0 +1,59 @@
+.todo-subject-select-panel {
+	& {
+		background-color: white;
+		border: 1px solid #aaa;
+		height: 50px;
+		position: relative;
+
+		.btn-group {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+			margin-left: 10px;
+
+		}
+
+		.btn {
+			min-width: 150px;
+
+			&.active {
+				pointer-events: none;
+
+				&:before {
+					font-family: FontAwesome;
+					content: "\f04b"; // fa-play
+
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					left: -15px;
+					color: #333;
+
+				}
+
+			}
+
+		}
+
+		label {
+			border-radius: 0px;
+			margin-left: 50px !important; // override bootstrap
+
+			&.no-user-type {
+				display: none;
+			}
+			&.bidder {
+				background-color: $bidder-color;
+			}
+			&.buyer {
+				background-color: $buyer-color;
+			}
+			&.all-bidders {
+				background-color: $banner-background-color;
+			}
+
+		}
+	}
+}
+
+	

@@ -1,0 +1,112 @@
+{  
+   "status":"SUCCESS",
+   "statusCode":200,
+   "data":{  
+      "total":97,
+      "stage1Total":96,
+      "stage3Total":1,
+      "list":[  
+         {  
+            "bidder":{  
+               "userId":"berlg",
+               "name":"Barry Guttman",
+               "extension":"2699",
+               "email":"berlg@bhphotovideo.com"
+            },
+            "stage1Count":18,
+            "stage3Count":0,
+            "totalCount":18
+         },
+         {  
+            "bidder":{  
+               "userId":"chaimka",
+               "name":"Carl Kaller",
+               "extension":"2666",
+               "email":"chaimka@bhphotovideo.com"
+            },
+            "stage1Count":10,
+            "stage3Count":0,
+            "totalCount":10
+         },
+         {  
+            "bidder":{  
+               "userId":"efraimb",
+               "name":"Ethyl Berkowitz",
+               "extension":"2587",
+               "email":"efraimb@bhphotovideo.com"
+            },
+            "stage1Count":13,
+            "stage3Count":0,
+            "totalCount":13
+         },
+         {  
+            "bidder":{  
+               "userId":"michelf",
+               "name":"Michael Friedman",
+               "extension":"2960",
+               "email":"michelf@bhphotovideo.com"
+            },
+            "stage1Count":16,
+            "stage3Count":1,
+            "totalCount":17
+         },
+         {  
+            "bidder":{  
+               "userId":"nathanh",
+               "name":"Nathan Hirschman",
+               "extension":"2949",
+               "email":"nathanh@bhphotovideo.com"
+            },
+            "stage1Count":8,
+            "stage3Count":0,
+            "totalCount":8
+         },
+         {  
+            "bidder":{  
+               "userId":"saml",
+               "name":"Sam Lehrfeld",
+               "extension":"2627",
+               "email":"saml@bhphotovideo.com"
+            },
+            "stage1Count":5,
+            "stage3Count":0,
+            "totalCount":5
+         },
+         {  
+            "bidder":{  
+               "userId":"sheag",
+               "name":"Susan Gold",
+               "extension":"2531",
+               "email":"sheag@bhphotovideo.com"
+            },
+            "stage1Count":16,
+            "stage3Count":0,
+            "totalCount":16
+         },
+         {  
+            "bidder":{  
+               "userId":"yolef",
+               "name":"Jason Feder",
+               "extension":"2528",
+               "email":"yolef@bhphotovideo.com"
+            },
+            "stage1Count":10,
+            "stage3Count":0,
+            "totalCount":10
+         }
+      ],
+      "searchRequest":{  
+         "filters":{  
+            "status":[  
+               "ACTIVE",
+               "HOLD"
+            ],
+            "requiresAction":false,
+            "stageNumber":[  
+               1,
+               3
+            ]
+         }
+      }
+   }
+}

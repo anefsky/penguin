@@ -1,0 +1,42 @@
+{
+  "status": "SUCCESS",
+  "statusCode": 200,
+  "data": {
+    "total": {
+      "stage1": 96,
+      "stage2": 7,
+      "stage3": 1,
+      "total": 104
+    },
+    "dueToday": {
+      "stage1": 0,
+      "stage2": 0,
+      "stage3": 0,
+      "total": 0
+    },
+    "dueNextWeek": {
+      "stage1": 0,
+      "stage2": 0,
+      "stage3": 0,
+      "total": 0
+    },
+    "pastDue": {
+      "stage1": 7,
+      "stage2": 2,
+      "stage3": 1,
+      "total": 10
+    },
+    "highPriority": {
+      "stage1": 4,
+      "stage2": 1,
+      "stage3": 0,
+      "total": 5
+    },
+    "onHold": {
+      "stage1": 1,
+      "stage2": 2,
+      "stage3": 0,
+      "total": 3
+    }
+  }
+}

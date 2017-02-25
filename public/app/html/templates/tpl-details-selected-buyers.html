@@ -1,0 +1,13 @@
+<div class="selected-buyers">
+
+
+	<a ng-show="data.selectedBuyers.length > 0" ng-click="clearAllSelected(); loadItemsFirstPage(); handleChange()"><i class="fa fa-times" aria-hidden="true"></i></a>
+	<p class="none-selected-msg" ng-hide="data.selectedBuyers.length > 0">No buyers selected,  all items shown.</p>
+
+
+	<ul>
+		<li  ng-repeat="buyer in data.selectedBuyers"> {{ buyer.name }} <i class="fa fa-times" aria-hidden="true" 
+			ng-click="deselectBuyer(buyer); loadItemsFirstPage(); handleChange()"></i>
+		</li> 		
+	</ul>
+</div>

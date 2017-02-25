@@ -1,0 +1,57 @@
+<div id="todo-page" ng-controller="todoPageCtrl">
+
+	<pre ng-show='false'>{{ pagedata | json }}</pre>
+ 
+	<header bh-waiting-div show-spinner="false" id="container-todo-header"
+		included-partial='app/html/todo-header.html'></header>
+ 
+	<div id="todo-left-panel">
+
+		<section bh-waiting-div id="container-todo-filter-panel"
+			included-partial='app/html/todo-filter-panel.html'>
+		</section>
+
+		<section bh-waiting-div id="container-todo-subject-select-panel"
+			included-partial='app/html/todo-subject-select-panel.html'>
+		</section>
+
+		<section bh-waiting-div show-spinner="false"
+			class="container-todo-pagination-panel top"
+			id="go-here-for-subsequent-page-changes"
+			included-partial='app/html/todo-pagination-panel.html'>
+		</section>
+
+		<section bh-waiting-div id="container-todo-bids-list"
+			included-partial='app/html/todo-bids-list.html'>
+		</section>
+			
+		<section bh-waiting-div show-spinner="false" ng-show="showBottomPaginationPanel"
+			class="container-todo-pagination-panel bottom"
+			included-partial='app/html/todo-pagination-panel.html'>
+		</section>
+			
+	</div>
+
+	<div id="todo-right-panel">
+
+		<section bh-waiting-div 
+			id="container-todo-snapshot-filter-panel"
+			included-partial='app/html/todo-snapshot-filter-panel.html'>
+		</section>
+
+		<section bh-waiting-div 
+			id="container-todo-snapshot-bidders-buyers"
+			included-partial='app/html/todo-bidders-buyers.html'
+			ng-init="type='buyer'">
+		</section>
+
+		<section bh-waiting-div 
+			id="container-todo-snapshot-bidders-buyers"
+			included-partial='app/html/todo-bidders-buyers.html'
+			ng-init="type='bidder'">
+		</section>
+
+	</div>
+
+</div>
+

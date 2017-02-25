@@ -1,0 +1,64 @@
+.radio-buttons-set {
+
+	.radio-item {
+		float: left;
+		width: calc(100% / 5);
+		position: relative;
+		top: 2.1875em;
+	}
+
+	.radio-item:nth-child(3):after {
+		content: "";
+		height: 5.5em;
+		width: 0.125em;
+		background-color: brown;
+		position: absolute;
+		right: 1.25em;
+		top: -0.2em;
+	}
+
+	label {
+		text-align: left;
+		cursor: pointer;
+		position: relative;
+		font-weight: normal; /* override bootstrap default */
+
+		&:hover {
+			text-shadow : 0 0 0 #222;
+		}
+	}
+
+	.selected-indicator {
+		width: 75%;
+		height: 0.1875em;
+		background-color: transparent;
+	}
+
+	input[type=radio]:checked + div.selected-indicator {
+		background-color: #333;
+	}
+
+
+	input {
+		display: none;
+	}
+
+	.radio-item.unselectable label {
+		color: #bbb;
+		cursor: default;
+		pointer-events: none;
+	}
+
+	.radio-item.unselectable input[type=checkbox] {
+		cursor: default;	
+	}
+
+	.qty {
+		font-size: 2.25em;
+	}
+
+	.caption {
+		font-size: 1.125em;
+	}
+}
+
